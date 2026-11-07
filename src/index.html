@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>PerfumariaADO02</title>
 </head>
 <body>
   <div class="content-container">
@@ -19,51 +19,39 @@
       name="nome"
       type="text"
       placeholder="Digite seu nome"
-      [(ngModel)]="cliente.nome"
+      [(ngModel)]="produto.nome"
     />
 
-    <label for="dataNascimento">Data de Nascimento</label>
+    <label for="marca">Marca</label>
     <input
       class="input-simples"
-      id="dataNascimento"
-      name="dataNascimento"
-      type="date"
-      [(ngModel)]="cliente.dataNascimento"
+      id="marca"
+      name="marca"
+      type="text"
+      placeholder="Digite a marca do produto"
+      [(ngModel)]="produto.marca"
     />
-   <label for="email">Email</label>
+
+    <label for="descricao">Descrição</label>
     <input
       class="input-simples"
-      id="email"
-      name="email"
-      type="email"
-      placeholder="Digite seu email"
-      [(ngModel)]="cliente.email"
+      id="descricao"
+      name="descricao"
+      type="text"
+      placeholder="Descreva o produto"
+      [(ngModel)]="produto.descricao"
     />
-    <label for="senha">Senha</label>
-    <input
-      class="input-simples"
-      id="senha"
-      name="senha"
-      type="password"
-      placeholder="Digite sua senha"
-      [(ngModel)]="cliente.senha"
-    />
-    <label for="confirmarSenha">Confirmar Senha</label>
-    <input
-      class="input-simples"
-      id="confirmarSenha"
-      name="confirmarSenha"
-      type="password"
-      placeholder="Confirme sua senha"
-      [(ngModel)]="cliente.confirmarSenha"
-    />
-    <button
-      type="button"
-      class="input-submeter"
-      (click)="cadastrar()">
-      Cadastrar
-    </button>
-  </form>
+    <button type="submit" (click)="cadastrarProduto()">Cadastrar</button>
+</div>
+<div>
+  <h2>Produtos Cadastrados</h2>
+  <ul>
+    <li *ngFor="let produto of produtos">
+      <h3>{{ produto.nome }}</h3>
+      <p><strong>Marca:</strong> {{ produto.marca }}</p>
+      <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+    </li>
+  </ul>
 </div>
 </body>
 </html>
